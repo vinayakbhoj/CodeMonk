@@ -2,6 +2,7 @@
 import  { useState } from "react";
 import { HoveredLink, Menu, MenuItem, ProductItem } from "../../../components/ui/navbar-menu";
 import { cn } from "../../../lib/utils";
+import codemonk from '../../../assets/codemonk.jpeg'
 
 export function NavbarDemo() {
   return (
@@ -20,13 +21,23 @@ function Navbar({ className }: { className?: string }) {
     <div
       className={cn("fixed top-10 inset-x-0 max-w-2xl mx-auto z-50", className)}
     >
+      {/* <img
+          src={codemonk}
+          alt="Codemonk Logo"
+          width={45}
+          height={45}
+          className="rounded-full"
+        /> */}
       <Menu setActive={setActive}>
+        <MenuItem setActive={setActive} active={active} item="logo">
+        <img src={codemonk} />
+        </MenuItem>
         <MenuItem setActive={setActive} active={active} item="Services">
           <div className="flex flex-col space-y-4 text-sm">
             <HoveredLink href="/services">Web Development</HoveredLink>
-            <HoveredLink href="/services">Interface Design</HoveredLink>
-            <HoveredLink href="/services">Search Engine Optimization</HoveredLink>
-            <HoveredLink href="/services">Branding</HoveredLink>
+            <HoveredLink href="/services">Fullstack Development</HoveredLink>
+            <HoveredLink href="/services">IT Consulting</HoveredLink>
+            <HoveredLink href="/services">Cloud Consulting</HoveredLink>
           </div>
         </MenuItem>
         <MenuItem setActive={setActive} active={active} item="Products">
@@ -59,10 +70,26 @@ function Navbar({ className }: { className?: string }) {
         </MenuItem>
         <MenuItem setActive={setActive} active={active} item="Pricing">
           <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/hobby">Hobby</HoveredLink>
-            <HoveredLink href="/individual">Individual</HoveredLink>
-            <HoveredLink href="/team">Team</HoveredLink>
-            <HoveredLink href="/enterprise">Enterprise</HoveredLink>
+            <HoveredLink href="/pricing">Web Devwlopment</HoveredLink>
+            <HoveredLink href="/pricing">Fullstack Development</HoveredLink>
+            <HoveredLink href="/pricing">IT Consulting</HoveredLink>
+            {/* <HoveredLink href="/pricing">Enterprise</HoveredLink> */}
+          </div>
+        </MenuItem>
+        <MenuItem setActive={setActive} active={active} item="About Us">
+          <div className="flex flex-col space-y-4 text-sm">
+            <HoveredLink href="/about">Team</HoveredLink>
+            <HoveredLink href="/about">Milestone</HoveredLink>
+            <HoveredLink href="/about">Leaders</HoveredLink>
+            <HoveredLink href="/about">Clients</HoveredLink>
+          </div>
+        </MenuItem>
+        <MenuItem setActive={setActive} active={active} item="Contact Us">
+          <div className="flex flex-col space-y-4 text-sm">
+            <HoveredLink href="/contact">Contact</HoveredLink>
+            {/* <HoveredLink href="/about">Milestone</HoveredLink>
+            <HoveredLink href="/about">Leaders</HoveredLink>
+            <HoveredLink href="/about">Clients</HoveredLink> */}
           </div>
         </MenuItem>
       </Menu>
