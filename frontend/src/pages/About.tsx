@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Shield, Users, Rocket, Clipboard, Star, Award, Zap, Smartphone, LifeBuoy, Linkedin, Twitter, Quote, TrendingUp } from 'lucide-react';
 
 // --- Types and Data ---
@@ -96,20 +96,20 @@ const SectionHeader: React.FC<{ sub: string; titlePrimary: string; titleSecondar
   </div>
 );
 
-const StatCard: React.FC<{ stat: Stat; delay: number }> = ({ stat, delay }) => (
-  <div
-    className="bg-white p-6 md:p-8 rounded-2xl shadow-lg border border-gray-100 flex items-center space-x-4 transform hover:scale-[1.03] transition-all duration-300"
-    style={{ animation: `fadeInUp 0.6s ease-out ${delay}ms forwards`, opacity: 0 }}
-  >
-    <div className="p-3 rounded-xl bg-blue-500/10 text-blue-600">
-      <stat.icon className="w-8 h-8" />
-    </div>
-    <div>
-      <p className="text-4xl font-extrabold text-gray-900">{stat.value}</p>
-      <p className="text-sm text-gray-500">{stat.label}</p>
-    </div>
-  </div>
-);
+// const StatCard: React.FC<{ stat: Stat; delay: number }> = ({ stat, delay }) => (
+//   <div
+//     className="bg-white p-6 md:p-8 rounded-2xl shadow-lg border border-gray-100 flex items-center space-x-4 transform hover:scale-[1.03] transition-all duration-300"
+//     style={{ animation: `fadeInUp 0.6s ease-out ${delay}ms forwards`, opacity: 0 }}
+//   >
+//     <div className="p-3 rounded-xl bg-blue-500/10 text-blue-600">
+//       <stat.icon className="w-8 h-8" />
+//     </div>
+//     <div>
+//       <p className="text-4xl font-extrabold text-gray-900">{stat.value}</p>
+//       <p className="text-sm text-gray-500">{stat.label}</p>
+//     </div>
+//   </div>
+// );
 
 const TeamCard: React.FC<{ member: TeamMember }> = ({ member }) => (
   <div className="bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:translate-y-[-5px] group border border-gray-100">
@@ -208,13 +208,7 @@ const GuaranteeCard: React.FC<{ guarantee: Guarantee; index: number }> = ({ guar
 // --- Main App Component ---
 
 const About: React.FC = () => {
-  // Simple state for triggering CSS animations after mount (simulating scroll effects)
-  const [isMounted, setIsMounted] = useState(false);
-  useEffect(() => {
-    // Wait a brief moment to ensure all elements are in the DOM before Aboutlying animations
-    const timer = setTimeout(() => setIsMounted(true), 50);
-    return () => clearTimeout(timer);
-  }, []);
+  // Animations are triggered via inline styles with animation delays
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans">
